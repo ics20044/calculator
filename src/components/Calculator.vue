@@ -97,26 +97,26 @@ button:hover {
 
 .operator,
 .equal {
-  background-color: #ff8c00;
+  background-color: #0953b5;
   color: #fff;
-  box-shadow: 0px 3px 6px rgba(245, 124, 0, 0.3);
+  box-shadow: 0px 3px 6px rgba(0, 245, 167, 0.377);
 }
 
 .operator:hover,
 .equal:hover {
-  background-color: #e68a00;
+  background-color: #82e600;
 }
 
 .clear {
-  background-color: #e74c3c;
+  background-color: #c3c008;
 }
 
 .clear:hover {
-  background-color: #c0392b;
+  background-color: #2b84c0;
 }
 
 .decimal {
-  background-color: #3498db;
+  background-color: #35585f;
 }
 
 .decimal:hover {
