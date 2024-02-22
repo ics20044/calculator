@@ -53,7 +53,7 @@ export default {
       const keyPressed = event.key;
 
       this.keys.forEach((key) => {
-        if (keyPressed === key.__vnode.children) {
+        if (keyPressed === key.textContent) {
           this.appendToDisplay(keyPressed);
         }
       });
