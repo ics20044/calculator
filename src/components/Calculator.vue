@@ -2,23 +2,23 @@
   <div class="calculator">
     <input type="text" class="display" :value="display" disabled />
     <div class="keys">
-      <button class="operator clear" @click="clearDisplay()">C</button>
-      <button class="operator" @click="appendToDisplay('/')">÷</button>
-      <button class="operator" @click="appendToDisplay('*')">x</button>
-      <button class="operator" @click="appendToDisplay('-')">-</button>
-      <button class="operator" @click="appendToDisplay('+')">+</button>
-      <button @click="appendToDisplay('7')">7</button>
-      <button @click="appendToDisplay('8')">8</button>
-      <button @click="appendToDisplay('9')">9</button>
-      <button @click="appendToDisplay('4')">4</button>
-      <button @click="appendToDisplay('5')">5</button>
-      <button @click="appendToDisplay('6')">6</button>
-      <button @click="appendToDisplay('1')">1</button>
-      <button @click="appendToDisplay('2')">2</button>
-      <button @click="appendToDisplay('3')">3</button>
-      <button @click="appendToDisplay('0')">0</button>
-      <button class="decimal" @click="appendToDisplay('.')">.</button>
-      <button class="equal" @click="calculateResult()">=</button>
+      <button class="operator clear key" @click="clearDisplay()">C</button>
+      <button class="operator key" @click="appendToDisplay('/')">÷</button>
+      <button class="operator key" @click="appendToDisplay('*')">x</button>
+      <button class="operator key" @click="appendToDisplay('-')">-</button>
+      <button class="operator key" @click="appendToDisplay('+')">+</button>
+      <button class="key" @click="appendToDisplay('7')">7</button>
+      <button class="key" @click="appendToDisplay('8')">8</button>
+      <button class="key" @click="appendToDisplay('9')">9</button>
+      <button class="key" @click="appendToDisplay('4')">4</button>
+      <button class="key" @click="appendToDisplay('5')">5</button>
+      <button class="key" @click="appendToDisplay('6')">6</button>
+      <button class="key" @click="appendToDisplay('1')">1</button>
+      <button class="key" @click="appendToDisplay('2')">2</button>
+      <button class="key" @click="appendToDisplay('3')">3</button>
+      <button class="key" @click="appendToDisplay('0')">0</button>
+      <button class="decimal key" @click="appendToDisplay('.')">.</button>
+      <button class="equal key" @click="calculateResult()">=</button>
     </div>
   </div>
 </template>
@@ -28,6 +28,7 @@ export default {
   data() {
     return {
       display: "",
+      keys: [],
     };
   },
   methods: {
@@ -45,6 +46,18 @@ export default {
         this.display = "Error";
       }
     },
+  },
+  mounted() {
+    this.keys = document.querySelectorAll(".key");
+    document.addEventListener("keydown", (event) => {
+      const keyPressed = event.key;
+
+      this.keys.forEach((key) => {
+        if (keyPressed === key.__vnode.children) {
+          this.appendToDisplay(keyPressed);
+        }
+      });
+    });
   },
 };
 </script>
